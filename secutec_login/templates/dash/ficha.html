@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+
+<h2>Bienvenido:  </h2> <span> {{ user }}</span>
+
+
+<center>
+    <h3> Datos del Cliente </h3>
+<div class="">
+    <span>Documento: {{documento}} </span>
+    <span>Nombres: {{nombres}} </span>
+    <span>Telefono: {{telefono}} </span>
+</div>
+
+
+
+<div class="">
+    <form action="" method="post">
+      {% csrf_token %}
+        {{ form.tipo_contacto.label_tag }}
+        {{ form.tipo_contacto }}
+        <input type="hidden" name="cliente" value="{{ cliente }}">
+      <div class="">
+          <button type="submit">Guardar</button>
+      </div>
+    </form>
+</div>
+</center>
+</body>
+</html>
