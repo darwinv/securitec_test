@@ -25,7 +25,7 @@ SECRET_KEY = 'ipu1qw=w0uv5yh3bn$!%m!3(l1o@u&dgdjbt#=(lhq6cw8@w7%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 AUTH_USER_MODEL = 'secutec_login.User'
