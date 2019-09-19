@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <style>
+    table, th, td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+    </style>
+</head>
+<body>
+
+
+<form action="" method="post">
+  {% csrf_token %}
+  <div class="">
+      <button type="submit">Reset Tablas</button>
+  </div>
+</form>
+
+<a href="/secutec/"> Ir a Login </a>
+
+<h4> Listado Clientes</h4>
+<table >
+  <tr>
+    <th>id</th>
+    <th>Documento</th>
+    <th>Nombres</th>
+    <th>Telefono</th>
+    <th>Resultado</th>
+    <th>agente_id</th>
+  </tr>
+  {% for cliente in clientes %}
+  <tr>
+    <td>{{ cliente.id }} </td>
+    <td> {{ cliente.documento }} </td>
+    <td> {{ cliente.nombres }} </td>
+    <td> {{ cliente.telefono }} </td>
+    <td> {{ cliente.resultado }} </td>
+    <td> {{ cliente.agente }} </td>
+  </tr>
+  {% endfor %}
+</table>
+<br>
+
+<h4> Listado Documento - Agente</h4>
+<table >
+  <tr>
+    <th>id</th>
+    <th>Agente</th>
+    <th>Documento del cliente</th>
+  </tr>
+  {% for age in agente_cliente_list %}
+  <tr>
+    <td> {{ age.id }} </td>
+    <td> {{ age.agente }} </td>
+    <td> {{ age.documento }} </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

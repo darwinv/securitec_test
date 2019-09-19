@@ -11,13 +11,20 @@ from django.db.models import Q
 class SignInView(LoginView):
     pass
 
-# def login_view(request):
-#     if request.method == 'POST':
-#         form = AuthenticationForm(data=request.POST)
-#         if form.is_valid()
-#         user = form.get_user()
-#         login(request.user)
+@login_required
+def render_tablas(request):
+    """Vista para listar y resetear tablas"""
+    if request.method == 'GET':
+        queryset_clts = Cliente.objects.all()
+        documento_rel_list = DocumentoAgente.objects.all()
+        return render(request, 'dash/tablas.html',
+                      {'clientes': queryset_clts,
+                       'agente_cliente_list': documento_rel_list})
 
+    if request.method == 'POST':
+        Cliente.objects.all().update(resultado=None, agente=None)
+        DocumentoAgente.objects.all().delete()
+        return HttpResponseRedirect('/tablas/')
 
 @login_required
 def dashboard(request):

@@ -19,5 +19,6 @@ from secutec_login import views
 urlpatterns = [
     url(r'^secutec/', include('secutec_login.urls')),
     url(r'^dashboard/', views.dashboard, name='dashboard'),
+    url(r'^tablas/', views.render_tablas, name='listado_tablas'),
     url(r'^admin/', admin.site.urls),
 ]
